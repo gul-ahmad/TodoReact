@@ -7,6 +7,9 @@ TodoForm.propTypes = {
 
 function TodoForm(props) {
   const [todoInput, setTodoInput] = useState('');
+  //const [title, setTitle] = useState('');
+  const [isCompleted, setIsCompleted] = useState('');
+  const [message, setMessage] = useState('');
 
   function handleInput(event) {
     setTodoInput(event.target.value);
@@ -20,18 +23,22 @@ function TodoForm(props) {
     }
     props.addTodo(todoInput);
     setTodoInput('');
+    setMessage('Todo added successfully');
   }
 
   return (
-    <form action="#" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={todoInput}
-        onChange={handleInput}
-        className="todo-input"
-        placeholder="What do you need to do?"
-      />
-    </form>
+    <div>
+      <form action="#" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={todoInput}
+          onChange={handleInput}
+          className="todo-input"
+          placeholder="What do you need to do?"
+        />
+      </form>
+      <div className="message">{message ? <p>{message}</p> : null}</div>
+    </div>
   );
 }
 

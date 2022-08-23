@@ -14,11 +14,11 @@ TodoList.propTypes = {
   remaining: PropTypes.func.isRequired,
   clearCompleted: PropTypes.func.isRequired,
   completeAllTodos: PropTypes.func.isRequired,
-  todosFiltered:PropTypes.func.isRequired,
+  todosFiltered: PropTypes.func.isRequired,
 };
 /* <> below this is added as a root element we can add a div as well instead ,but this is know as fragment */
 function TodoList(props) {
-  const [filter, setFilter] = useState('completed');
+  const [filter, setFilter] = useState('all');
 
   return (
     <>
@@ -88,10 +88,10 @@ function TodoList(props) {
       </div>
 
       <div className="other-buttons-container">
-        <TodoFilters 
-        filter={filter}
-        todosFiltered={props.todosFiltered}
-        setFilter={setFilter}
+        <TodoFilters
+          filter={filter}
+          todosFiltered={props.todosFiltered}
+          setFilter={setFilter}
         />
 
         <div>
